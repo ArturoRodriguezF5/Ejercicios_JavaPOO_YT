@@ -43,6 +43,8 @@ public abstract class Empleado {
         return PLUS;
     }
 
+    public abstract void plus();
+
     @Override
     public String toString() {
         return "Empleado: {" +

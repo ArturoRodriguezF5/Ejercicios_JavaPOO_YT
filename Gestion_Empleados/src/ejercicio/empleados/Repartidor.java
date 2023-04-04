@@ -1,6 +1,6 @@
 package ejercicio.empleados;
 
-public class Repartidor extends Empleado implements Mediator{
+public class Repartidor extends Empleado {
 
     private String zona;
 
@@ -22,8 +22,8 @@ public class Repartidor extends Empleado implements Mediator{
     @Override
     public void plus() {
         double result;
-        if (this.getEdad() <= 25 && this.zona.equals("zona 3")) {
-            result = getSalario() + getPLUS();
+        if (super.getEdad() <= 25 && this.zona.equals("zona 3")) {
+            result = super.getSalario() + getPLUS();
             System.out.println("Empleado: " + getNombre() + " recibe el PLUS, nuevo salario: " + result);
         } else {
             System.out.println("Empleado: " + getNombre() + " no recibe PLUS.");

@@ -1,14 +1,17 @@
 package ejercicio.empleados;
 
 public class Main {
+
+
     public static void main(String[] args) {
+
 
         // Creamos objetos de tipo Comercial mediante uso de la interfaz Mediator.
 
-        Mediator em1 = new Comercial("Ivonne", 24, 1200d, 350d);
-        Mediator em2 = new Comercial("Renata", 31, 1500d, 500);
-        Mediator em3 = new Repartidor("Karina", 24, 1000d, "zona 3");
-        Mediator em4 = new Repartidor("Azul", 32, 850d, "zona 4");
+        Empleado em1 = new Comercial("Ivonne", 24, 1200d, 350d);
+        Empleado em2 = new Comercial("Renata", 31, 1500d, 500);
+        Empleado em3 = new Repartidor("Karina", 24, 1000d, "zona 3");
+        Empleado em4 = new Repartidor("Azul", 32, 850d, "zona 4");
 
         // Imprimimos los datos de los objetos creados.
 
@@ -23,6 +26,7 @@ public class Main {
         em2.plus();
         em3.plus();
         em4.plus();
+
 
 
     }
