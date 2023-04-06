@@ -1,0 +1,1 @@
+Automovil: {marca= 'Volvo', modelo= 'T2000', año= 2023}Camion{capacidadCarga=18000.0, tipo='Volquete'}Automovil: {marca= 'Kenworth', modelo= '5000', año= 2023}Camion{capacidadCarga=23000.0, tipo='Caja Seca'}

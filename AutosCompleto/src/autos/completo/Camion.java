@@ -51,10 +51,8 @@ public class Camion extends Automovil implements CocheCRUD{
     }
 
     @Override
-    public void automovilesLista() {
-        for (Automovil auto : camion) {
-            System.out.println(auto);
-        }
+    public ArrayList<Automovil> automovilesLista() {
+        return camion;
     }
 
     @Override

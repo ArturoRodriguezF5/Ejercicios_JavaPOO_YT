@@ -8,6 +8,6 @@ public interface CocheCRUD {
 
     void automovilesRemoved(int i);
     void automovilesMostrar(int i);
-    void automovilesLista();
+    ArrayList<Automovil> automovilesLista();
 
 }
