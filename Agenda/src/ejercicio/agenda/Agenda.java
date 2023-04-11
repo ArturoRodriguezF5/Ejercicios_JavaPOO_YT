@@ -1,29 +1,50 @@
 package ejercicio.agenda;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Agenda implements AgendaCRUD{
 
     private Contacto contacto;
-    private ArrayList<Contacto> contactos;
+    ArrayList<Contacto> contactos = new ArrayList<>();
+    private int tam;
 
     public Agenda() {
-        this.contactos = new ArrayList<Contacto>(10);
+        this.tam = 10;
     }
 
     public Agenda(int capacity) {
-        this.contactos = new ArrayList<>(capacity);
+        this.tam = capacity;
     }
 
 
     @Override
     public void aniadirContacto(Contacto c) {
-        if (this.contactos.size() >0) {
-            if (contactos.contains(c.getNombre())) {
+        System.out.println(tam);
+        System.out.println(contactos.size());
+        if (this.contactos.size() < this.tam) {
+            if (this.contactos.isEmpty()) {
                 contactos.add(c);
+                System.out.println("Es el primer contacto, se agregó sin problema.");
             } else {
-                System.out.println("El contacto: " + c.getNombre() + "ya existe, no se puede agregar.");
-            }
+                    if(contactos.contains(c)) {
+                        System.out.println("Error, el contacto ya existe.");
+                    } else {
+                        contactos.add(c);
+                        System.out.println("El contacto se agregó correctamente.");
+                    }
+                }
+            /*for (Contacto contacto : contactos) {
+                if (c.getNombre().equals(contacto.getNombre())) {
+                    System.out.println("Contacto existente, no se puede agregar.");
+                } else {
+                    contactos.add(c);
+                    System.out.println("El contacto: " + c.getNombre() + " se agregó con éxito a la agenda.");
+
+                }
+            }*/
+
         } else {
             System.out.println("No se puede agregar contacto por falta de espacio.");
         }
@@ -76,5 +97,23 @@ public class Agenda implements AgendaCRUD{
     @Override
     public int huecosLibres() {
         return contactos.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agenda agenda = (Agenda) o;
+        return Objects.equals(contacto, agenda.contacto) && Objects.equals(contactos, agenda.contactos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(contacto, contactos);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

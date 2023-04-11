@@ -1,5 +1,7 @@
 package ejercicio.agenda;
 
+import java.util.Objects;
+
 public class Contacto {
 
     private String nombre;
@@ -33,6 +35,19 @@ public class Contacto {
     }
 
     // Método toString para imprimir datos.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contacto contacto = (Contacto) o;
+        return Double.compare(contacto.numero, numero) == 0 && Objects.equals(nombre, contacto.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, numero);
+    }
 
     @Override
     public String toString() {
