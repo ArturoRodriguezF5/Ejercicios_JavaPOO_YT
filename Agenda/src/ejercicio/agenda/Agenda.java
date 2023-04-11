@@ -41,7 +41,7 @@ public class Agenda implements AgendaCRUD{
     @Override
     public void existeConatacto(Contacto c) {
         if (contactos.contains(c)) {
-            System.out.println("El contacto:" + c.getNombre() + "existe en la agenda.");
+            System.out.println("El contacto:" + c.getNombre() + " existe en la agenda.");
         } else {
             System.out.println("El contacto no existe en la agenda.");
         }
@@ -63,28 +63,27 @@ public class Agenda implements AgendaCRUD{
 
     @Override
     public void eliminarContacto(Contacto c) {
-        for (int i = 0; i < contactos.size(); i++) {
-            if (contactos.get(i).getNombre().equals(c.getNombre())) {
-                contactos.remove(i);
-            } else {
-                System.out.println("No se encontró el elemento en la agenda, no se elimino nada.");
-            }
+        if (contactos.contains(c)) {
+            contactos.remove(c);
+            System.out.println("Se eliminó el contacto: " + c.getNombre());
+        } else {
+            System.out.println("No se eliminó, no existe el contacto en la lista.");
         }
     }
 
     @Override
     public void agendaLlena() {
-        if (contactos.size() == 1) {
-            System.out.println("Lista Llena.");
+        if (contactos.size() <= tam) {
+            System.out.println("Agenda no Llena.");
         } else {
-            System.out.println("Lista no llena.");
+            System.out.println("Agenda llena.");
         }
 
     }
 
     @Override
     public int huecosLibres() {
-        return contactos.size();
+        return tam - contactos.size();
     }
 
     @Override

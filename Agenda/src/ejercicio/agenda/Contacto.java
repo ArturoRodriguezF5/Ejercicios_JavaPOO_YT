@@ -5,13 +5,13 @@ import java.util.Objects;
 public class Contacto {
 
     private String nombre;
-    private double numero;
+    private long numero;
 
     // Métodos constructores.
     public Contacto() {
     }
 
-    public Contacto(String nombre, double numero) {
+    public Contacto(String nombre, long numero) {
         this.nombre = nombre;
         this.numero = numero;
     }
@@ -30,7 +30,7 @@ public class Contacto {
         return numero;
     }
 
-    public void setNumero(double numero) {
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
