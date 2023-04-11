@@ -1,14 +1,13 @@
 package ejercicio.agenda;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Agenda implements AgendaCRUD{
 
     private Contacto contacto;
     ArrayList<Contacto> contactos = new ArrayList<>();
-    private int tam;
+    private int tam = 0;
 
     public Agenda() {
         this.tam = 10;
@@ -21,30 +20,19 @@ public class Agenda implements AgendaCRUD{
 
     @Override
     public void aniadirContacto(Contacto c) {
-        System.out.println(tam);
-        System.out.println(contactos.size());
-        if (this.contactos.size() < this.tam) {
-            if (this.contactos.isEmpty()) {
+
+            if (this.contactos.size() < this.tam) {
+                if (this.contactos.isEmpty()) {
                 contactos.add(c);
                 System.out.println("Es el primer contacto, se agregó sin problema.");
             } else {
                     if(contactos.contains(c)) {
-                        System.out.println("Error, el contacto ya existe.");
+                        System.out.println("Error, el contacto: " + c.getNombre() + " ya existe en la agenda.");
                     } else {
                         contactos.add(c);
-                        System.out.println("El contacto se agregó correctamente.");
+                        System.out.println("El contacto: " + c.getNombre() + " se agregó correctamente.");
                     }
                 }
-            /*for (Contacto contacto : contactos) {
-                if (c.getNombre().equals(contacto.getNombre())) {
-                    System.out.println("Contacto existente, no se puede agregar.");
-                } else {
-                    contactos.add(c);
-                    System.out.println("El contacto: " + c.getNombre() + " se agregó con éxito a la agenda.");
-
-                }
-            }*/
-
         } else {
             System.out.println("No se puede agregar contacto por falta de espacio.");
         }
