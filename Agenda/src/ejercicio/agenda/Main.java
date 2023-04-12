@@ -30,6 +30,7 @@ public class Main {
         agendaCRUD.buscaContacto("Ruby");
         // Método para eliminar un contacto.
         agendaCRUD.eliminarContacto(contacto4);
+        System.out.println(contacts);
         // Método para indicar si la agenda esta llena.
         agendaCRUD.agendaLlena();
         // Método para ver cuántos huecos hay libres.
